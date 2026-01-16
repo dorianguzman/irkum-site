@@ -172,47 +172,53 @@ function initSmoothScroll() {
    ===================================================== */
 function initContactForm() {
     const form = document.getElementById('contactForm');
-    
+    const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz41sm61yRlEVpG7duDs34nUwntoRU8eQb5DR3S_CMdhuKgq6AaQ30p2rYhkEANpj4/exec';
+
     if (!form) return;
-    
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const submitButton = form.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
-        
+
         // Disable button and show loading state
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
-        
+
         // Collect form data
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-        
-        // Simulate form submission (replace with actual endpoint)
+
         try {
-            // Simulated delay
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            // Success state
+            const response = await fetch(FORM_ENDPOINT, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+
+            // Success state (no-cors doesn't return response, assume success)
             submitButton.textContent = 'Message Sent ✓';
             submitButton.style.backgroundColor = 'var(--color-gold)';
-            
+
             // Reset form
             form.reset();
-            
+
             // Reset button after delay
             setTimeout(() => {
                 submitButton.textContent = originalText;
                 submitButton.style.backgroundColor = '';
                 submitButton.disabled = false;
             }, 3000);
-            
+
         } catch (error) {
             // Error state
             submitButton.textContent = 'Error - Try Again';
             submitButton.style.backgroundColor = '#c44';
-            
+
             setTimeout(() => {
                 submitButton.textContent = originalText;
                 submitButton.style.backgroundColor = '';
