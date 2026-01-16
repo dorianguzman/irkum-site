@@ -38,23 +38,3 @@ ${data.message}
   }
 }
 
-/**
- * Test function - run this to test the email sending
- */
-function testEmail() {
-  const testData = {
-    name: 'Test User',
-    email: 'test@example.com',
-    interest: 'Bespoke Piece',
-    message: 'This is a test message.'
-  };
-
-  const mockEvent = {
-    postData: {
-      contents: JSON.stringify(testData)
-    }
-  };
-
-  const result = doPost(mockEvent);
-  console.log(result.getContent());
-}
