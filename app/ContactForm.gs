@@ -24,6 +24,7 @@ ${data.message}
 
     MailApp.sendEmail({
       to: 'info.irikum@gmail.com',
+      cc: 'janiquesmeets@gmail.com, dorianeguzman@gmail.com',
       subject: 'New Irikum Inquiry from ' + data.name,
       body: emailBody,
       replyTo: data.email
