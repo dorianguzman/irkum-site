@@ -1406,7 +1406,11 @@ h1, h2, h3, h4 {
     }
 
     .hero-scroll {
-        display: none;
+        bottom: 20px;
+    }
+
+    .hero-scroll-line {
+        height: 40px;
     }
 
     .section-label {
