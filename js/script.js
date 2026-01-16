@@ -172,7 +172,7 @@ function initSmoothScroll() {
    ===================================================== */
 function initContactForm() {
     const form = document.getElementById('contactForm');
-    const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz41sm61yRlEVpG7duDs34nUwntoRU8eQb5DR3S_CMdhuKgq6AaQ30p2rYhkEANpj4/exec';
+    const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzYHQ18c-2mrjzUI-k9n-5VjdVPb8ImvG2Lal8FRQlZ1_XVkjDIk7BqvfZe4UcbRtzE/exec';
 
     if (!form) return;
 
