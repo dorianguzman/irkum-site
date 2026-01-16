@@ -40,7 +40,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="css/styles.css?v=29">
+    <link rel="stylesheet" href="css/styles.css?v=32">
     
     <!-- Favicon & Icons -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -309,21 +309,28 @@
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" autocomplete="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="interest">I'm interested in</label>
-                            <select id="interest" name="interest">
-                                <option value="">Select an option</option>
-                                <option value="collections">Viewing Collections</option>
-                                <option value="bespoke">Bespoke Creation</option>
-                                <option value="consultation">General Consultation</option>
-                                <option value="other">Something Else</option>
-                            </select>
+                            <span class="form-label">I'm interested in</span>
+                            <input type="hidden" id="interest" name="interest" value="">
+                            <div class="custom-select" data-for="interest" role="combobox" aria-label="I'm interested in">
+                                <div class="custom-select-trigger" tabindex="0">
+                                    <span>Select an option</span>
+                                    <svg width="12" height="12" viewBox="0 0 12 12"><path fill="#C9A962" d="M6 8L1 3h10z"/></svg>
+                                </div>
+                                <div class="custom-select-options" role="listbox">
+                                    <div class="custom-select-option" role="option" data-value="">Select an option</div>
+                                    <div class="custom-select-option" role="option" data-value="collections">Viewing Collections</div>
+                                    <div class="custom-select-option" role="option" data-value="bespoke">Bespoke Creation</div>
+                                    <div class="custom-select-option" role="option" data-value="consultation">General Consultation</div>
+                                    <div class="custom-select-option" role="option" data-value="other">Something Else</div>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="message">Tell us about your vision</label>
@@ -356,7 +363,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=3"></script>
 
     <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">

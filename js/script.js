@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initContactForm();
     initParallaxEffects();
+    initCustomSelect();
 });
 
 /* =====================================================
@@ -277,6 +278,71 @@ function initParallaxEffects() {
             if (storyScroll > 0 && storyScroll < storySection.offsetHeight + window.innerHeight) {
                 storyAccent.style.transform = `translateY(${storyScroll * 0.1}px)`;
             }
+        }
+    });
+}
+
+/* =====================================================
+   CUSTOM SELECT DROPDOWN
+   ===================================================== */
+function initCustomSelect() {
+    const customSelects = document.querySelectorAll('.custom-select');
+
+    customSelects.forEach(select => {
+        const trigger = select.querySelector('.custom-select-trigger');
+        const options = select.querySelectorAll('.custom-select-option');
+        const hiddenInput = document.getElementById(select.dataset.for);
+        const triggerText = trigger.querySelector('span');
+
+        // Toggle dropdown
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            // Close other dropdowns
+            customSelects.forEach(s => {
+                if (s !== select) s.classList.remove('open');
+            });
+
+            select.classList.toggle('open');
+        });
+
+        // Select option
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                const value = option.dataset.value;
+                const text = option.textContent;
+
+                // Update hidden input
+                if (hiddenInput) {
+                    hiddenInput.value = value;
+                }
+
+                // Update trigger text
+                triggerText.textContent = text;
+
+                // Update selected state
+                options.forEach(o => o.classList.remove('selected'));
+                option.classList.add('selected');
+
+                // Close dropdown
+                select.classList.remove('open');
+            });
+        });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', () => {
+        customSelects.forEach(select => {
+            select.classList.remove('open');
+        });
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            customSelects.forEach(select => {
+                select.classList.remove('open');
+            });
         }
     });
 }
