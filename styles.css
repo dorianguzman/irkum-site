@@ -1072,6 +1072,9 @@ h1, h2, h3, h4 {
 }
 
 .social-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.9rem;
     color: var(--color-text);
     text-decoration: none;
@@ -1080,6 +1083,10 @@ h1, h2, h3, h4 {
 
 .social-links a:hover {
     color: var(--color-gold);
+}
+
+.social-links svg {
+    flex-shrink: 0;
 }
 
 /* Contact Form */
