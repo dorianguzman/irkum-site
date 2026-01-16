@@ -343,7 +343,7 @@ h1, h2, h3, h4 {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: var(--nav-height) var(--space-md) 80px;
+    padding: var(--nav-height) var(--space-md) var(--space-lg);
 }
 
 .hero-bg {
@@ -1406,15 +1406,7 @@ h1, h2, h3, h4 {
     }
 
     .hero-scroll {
-        bottom: 15px;
-    }
-
-    .hero-scroll-text {
-        font-size: 0.6rem;
-    }
-
-    .hero-scroll-line {
-        height: 40px;
+        display: none;
     }
 
     .section-label {
@@ -1501,14 +1493,6 @@ h1, h2, h3, h4 {
     .hero-subtitle {
         font-size: 0.85rem;
         margin-bottom: var(--space-sm);
-    }
-
-    .hero-scroll {
-        bottom: 10px;
-    }
-
-    .hero-scroll-line {
-        height: 30px;
     }
 
     .section-title {
